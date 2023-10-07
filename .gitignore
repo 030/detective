@@ -19,3 +19,7 @@
 
 # Go workspace file
 go.work
+
+
+*.tar
+docker_pull.py
