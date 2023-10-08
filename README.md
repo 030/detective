@@ -13,3 +13,5 @@ curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -
 trivy image --input utrecht_n3dr.tar
 
 curl -X POST -H 'Content-Type: application/json' localhost:8888 -d '{"image":"utrecht/n3dr","tag":"6.2.0"}'
+
+docker build --no-cache -t boo .
