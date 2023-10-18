@@ -14,10 +14,13 @@ type severities struct {
 
 // find binaries and docker image in the Trivy report
 func ResultTargets(b []byte) ([]string, error) {
-	resultsTargetKey := `Results.#.Target`
+	// resultsTargetKey := `Results.#.Target`
+	resultsTargetKey := `.Target`
 	resultsTargetValues := gjson.GetBytes(b, resultsTargetKey)
+	log.Info("====>", string(b))
 	if !resultsTargetValues.Exists() {
-		return nil, fmt.Errorf("key: '%s' does not exist in JSON: '%s'", resultsTargetKey, string(b))
+		// return nil, fmt.Errorf("key: '%s' does not exist in JSON: '%s'", resultsTargetKey, string(b))
+		return nil, fmt.Errorf("key: '%s' does not exist in JSON", resultsTargetKey)
 	}
 	log.Debugf("resultsTargetValues: '%s':", resultsTargetValues)
 	resultsTargetStringValues := []string{}

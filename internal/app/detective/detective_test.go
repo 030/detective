@@ -9,7 +9,7 @@ import (
 )
 
 func TestBli(t *testing.T) {
-	b, err := os.ReadFile("../../../test/testdata/trivy/bla.json")
+	b, err := os.ReadFile("../../../test/testdata/trivy/trivy.json")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -42,7 +42,7 @@ func TestBliErr(t *testing.T) {
 	// assert equality
 	// a := gjson.Result{Str: "utrecht/n3dr:6.2.0 (alpine 3.15.0)"}
 
-	expectedError := "key: 'Results.#.Target' does not exist in JSON: '{ \"hello\": \"world\" }\n'"
+	expectedError := "key: 'Results.#.Target' does not exist in JSON"
 	_, actualError := ResultTargets(b)
 	assert.EqualError(t, actualError, expectedError)
 

@@ -15,3 +15,13 @@ trivy image --input utrecht_n3dr.tar
 curl -X POST -H 'Content-Type: application/json' localhost:8888 -d '{"image":"utrecht/n3dr","tag":"6.2.0"}'
 
 docker build --no-cache -t boo .
+
+https://aquasecurity.github.io/trivy/v0.17.2/examples/report/
+
+```bash
+curl -X GET "localhost:1323/api/v1/scan/results?name=utrecht/n3dr&tag=6.0.3" -s| jq .critical
+```
+
+```bash
+curl -X POST -H 'Content-Type: application/json' localhost:1323/api/v1/scan/metrics -d '{"name":"alpine","tag":"3.12.0"}'
+```
